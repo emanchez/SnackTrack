@@ -8,7 +8,7 @@ sanchez.emmanuelm@gmail.com
 Lilybeth Delgado - Project Leader
 lilybeth.delgado96@gmail.com
 
-Anthony Copley
-
+Anthony Copley - Project Designer
+copleyanthony@yahoo.com
 
 Eduardo Martinez
