@@ -11,5 +11,5 @@ lilybeth.delgado96@gmail.com
 Anthony Copley - Project Designer
 copleyanthony@yahoo.com
 
-Eduardo Martinez - Lead Project Research
+Eduardo Martinez - Lead Project Researcher
 emartinez05@manhattan.edu
