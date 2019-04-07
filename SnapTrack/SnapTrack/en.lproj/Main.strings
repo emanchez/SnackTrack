@@ -1,0 +1,51 @@
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "3gq-nd-oJK"; */
+"3gq-nd-oJK.placeholder" = "Password";
+
+/* Class = "UITextField"; placeholder = "Login"; ObjectID = "CTm-1R-6DI"; */
+"CTm-1R-6DI.placeholder" = "Login";
+
+/* Class = "UITabBarItem"; title = "Item"; ObjectID = "FBv-hR-Gpw"; */
+"FBv-hR-Gpw.title" = "Item";
+
+/* Class = "UITabBarItem"; title = "Item"; ObjectID = "JKJ-qU-ZKl"; */
+"JKJ-qU-ZKl.title" = "Item";
+
+/* Class = "UIBarButtonItem"; title = "Settings"; ObjectID = "UfJ-sF-2uW"; */
+"UfJ-sF-2uW.title" = "Settings";
+
+/* Class = "UILabel"; text = "Height"; ObjectID = "VM4-3H-qel"; */
+"VM4-3H-qel.text" = "Height";
+
+/* Class = "UILabel"; text = "Weight"; ObjectID = "ZoC-Yb-Gfg"; */
+"ZoC-Yb-Gfg.text" = "Weight";
+
+/* Class = "UILabel"; text = "Extra Feature"; ObjectID = "a7T-da-aEC"; */
+"a7T-da-aEC.text" = "Extra Feature";
+
+/* Class = "UILabel"; text = "fname"; ObjectID = "brs-1M-KIC"; */
+"brs-1M-KIC.text" = "fname";
+
+/* Class = "UILabel"; text = "Edit Profile"; ObjectID = "eit-RS-RKl"; */
+"eit-RS-RKl.text" = "Edit Profile";
+
+/* Class = "UIButton"; normalTitle = "Upload"; ObjectID = "gKF-TQ-IUR"; */
+"gKF-TQ-IUR.normalTitle" = "Upload";
+
+/* Class = "UITabBarItem"; title = "Item 1"; ObjectID = "hVc-Or-uf2"; */
+"hVc-Or-uf2.title" = "Item 1";
+
+/* Class = "UIButton"; normalTitle = "Login"; ObjectID = "izq-ei-79T"; */
+"izq-ei-79T.normalTitle" = "Login";
+
+/* Class = "UILabel"; text = "Welcome"; ObjectID = "lk1-eO-BlX"; */
+"lk1-eO-BlX.text" = "Welcome";
+
+/* Class = "UILabel"; text = "Logout"; ObjectID = "uu4-8n-Bry"; */
+"uu4-8n-Bry.text" = "Logout";
+
+/* Class = "UILabel"; text = "S N A P T R A C K"; ObjectID = "xzV-JP-Qzy"; */
+"xzV-JP-Qzy.text" = "S N A P T R A C K";
+
+/* Class = "UIButton"; normalTitle = "Choose Image"; ObjectID = "z9G-AD-mqb"; */
+"z9G-AD-mqb.normalTitle" = "Choose Image";
