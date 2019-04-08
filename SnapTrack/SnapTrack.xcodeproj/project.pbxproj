@@ -3,11 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		0A05B2B8224FF39C003C7184 /* SettingsMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A05B2B7224FF39C003C7184 /* SettingsMenuViewController.swift */; };
+		0A1BD3B6225BE10E00E01D5E /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1BD3B5225BE10E00E01D5E /* SignUpViewController.swift */; };
 		0A43A4172225D25500F364B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A43A4162225D25500F364B2 /* AppDelegate.swift */; };
 		0A43A4192225D25500F364B2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A43A4182225D25500F364B2 /* ViewController.swift */; };
 		0A43A41C2225D25500F364B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A43A41A2225D25500F364B2 /* Main.storyboard */; };
@@ -21,6 +22,7 @@
 /* Begin PBXFileReference section */
 		0A05B2B2224FD549003C7184 /* SnapTrack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnapTrack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A05B2B7224FF39C003C7184 /* SettingsMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsMenuViewController.swift; sourceTree = "<group>"; };
+		0A1BD3B5225BE10E00E01D5E /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		0A43A4162225D25500F364B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0A43A4182225D25500F364B2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0A43A41B2225D25500F364B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 				0A43A42C2225E68500F364B2 /* CameraViewController.swift */,
 				0A43A42E22273D0300F364B2 /* IconsTabViewController.swift */,
 				0A43A4182225D25500F364B2 /* ViewController.swift */,
+				0A1BD3B5225BE10E00E01D5E /* SignUpViewController.swift */,
 				0A05B2B7224FF39C003C7184 /* SettingsMenuViewController.swift */,
 				0A43A41A2225D25500F364B2 /* Main.storyboard */,
 				0A43A41D2225D25E00F364B2 /* Assets.xcassets */,
@@ -104,7 +107,7 @@
 				};
 			};
 			buildConfigurationList = 0A43A40E2225D25500F364B2 /* Build configuration list for PBXProject "SnapTrack" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 10.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -140,6 +143,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A43A4292225DDA400F364B2 /* ProfileViewController.swift in Sources */,
+				0A1BD3B6225BE10E00E01D5E /* SignUpViewController.swift in Sources */,
 				0A05B2B8224FF39C003C7184 /* SettingsMenuViewController.swift in Sources */,
 				0A43A42F22273D0300F364B2 /* IconsTabViewController.swift in Sources */,
 				0A43A42D2225E68500F364B2 /* CameraViewController.swift in Sources */,

@@ -17,6 +17,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     var currentUserFirstName:String!
     
+    // pulled from my ass i mean stack overflow
+
+    
     override func shouldPerformSegue(withIdentifier identifier: String?, sender: Any?) -> Bool {
         if let ident = identifier {
             if ident == "segueFromLogin" {
@@ -29,25 +32,32 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        //let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         
-        view.addGestureRecognizer(tap)
+        //view.addGestureRecognizer(tap)
     }
     
-    func dismissKeyboard(){
-        view.endEditing(true)
+    // trying to dissmiss bitchass keyboard
+        func textFieldShouldReturn(textField: UITextField) {
+            
+            //userNameTextField.resignFirstResponder()
+            //passwordTextField.resignFirstResponder()
+            textField.resignFirstResponder()
+            
     }
-
     
         @IBAction func loginTapped(_ sender: Any) {
             
             let user_ = userNameTextField.text
             let pass_ = passwordTextField.text
             
-            let hashValue = strHash(String(format: "%@%@", user_!, pass_!))
+            // need to dismiss keyboard
+
+            
+            let hashValue = strHash(str: String(format: "%@%@", user_!, pass_!))
             print(hashValue)
             
-            var base_url = URLComponents(string: "http://149.61.250.35:5000/login?")
+            var base_url = URLComponents(string: String (format:"http://%@/login?", server1))
             
             base_url?.queryItems = [
                 URLQueryItem(name: "user", value: user_),

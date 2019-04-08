@@ -11,7 +11,7 @@ import UIKit
 
 class ProfileViewController: UIViewController{
     
-    @IBOutlet weak var firstName: UILabel!
+    @IBOutlet weak var welcomeLabel: UILabel!
     
     @IBOutlet weak var profilePicture: UIImageView!
     override func viewDidLoad() {
@@ -21,9 +21,9 @@ class ProfileViewController: UIViewController{
         profilePicture.layer.borderWidth = 1
         profilePicture.layer.masksToBounds = false
         profilePicture.layer.borderColor = UIColor.black.cgColor
-        profilePicture.layer.cornerRadius = profilePicture.frame.height/6
+        profilePicture.layer.cornerRadius = profilePicture.frame.height/2
         profilePicture.clipsToBounds = true
-        firstName.text = mainUser.fname
+        welcomeLabel.text = String(format: "Welcome %@!",mainUser.fname)
         print ( String(format: "%@ name", mainUser.fname))
     }
     

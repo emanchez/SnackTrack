@@ -32,5 +32,12 @@ class SettingsMenuViewController: UITableViewController{
         }
     }
     
+    @IBAction func logoutButtonTapped(_ sender: UIButton) {
+        print(String(format: "Logging out of %@'s account", mainUser.fname))
+        mainUser = UserInfo()
+        
+    }
+    
+    
     
 }

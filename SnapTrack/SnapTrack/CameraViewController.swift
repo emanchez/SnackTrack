@@ -75,7 +75,7 @@ UITabBarControllerDelegate{
     
     @IBAction func UploadImage(_ sender: Any) {
         let input_ = String("hello")
-        var base_url = URLComponents(string: "http://149.61.174.46:5000/test?")
+        var base_url = URLComponents(string: String (format:"http://%@/test?", server1))
         
         base_url?.queryItems = [
             URLQueryItem(name: "input", value: input_)
