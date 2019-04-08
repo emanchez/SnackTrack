@@ -1,0 +1,78 @@
+SELECT email,usr_password FROM user_profile WHERE usr_password = 593753822875553678;
+,
+SELECT email,usr_password FROM user_profile WHERE usr_password = '2892304754937056049';
+,
+SELECT email,usr_password FROM user_profile WHERE usr_password = '-417091059032401427';
+,
+SELECT email,usr_password FROM user_profile WHERE usr_password = '-4367821583653687382';
+,
+SELECT * FROM user_profile WHERE usr_password = '78752593946709319';
+,
+SELECT * FROM user_profile WHERE usr_password = '1436956671317347219';
+,
+SELECT * FROM user_profile WHERE usr_password = '1436956671317347219';
+,
+SELECT * FROM user_profile WHERE usr_password = '1436956671317347219';
+SELECT * FROM user_profile WHERE usr_password = '1436956671317347219';
+esanchez01@manhattan.edu 1436956671317347219 Emmanuel Sanchez 1997-04-29 120.0 170.18 
+SELECT * FROM user_profile WHERE usr_password = '1436956671317347219';
+esanchez01@manhattan.edu 1436956671317347219 Emmanuel Sanchez 1997-04-29 120.0 170.18 
+SELECT * FROM user_profile WHERE usr_password = '4806569058765975405';
+SELECT * FROM user_profile WHERE usr_password = '4806569058765975405';
+SELECT * FROM user_profile WHERE usr_password = '6057363323770436698';
+SELECT * FROM user_profile WHERE usr_password = '6057363323770436698';
+SELECT * FROM user_profile WHERE usr_password = '6057363323770436698';
+SELECT * FROM user_profile WHERE usr_password = '1436956671317347219';
+SELECT * FROM user_profile WHERE usr_password = '6057363323770436698';
+SELECT * FROM user_profile WHERE usr_password = '4806569058765975405';
+SELECT * FROM user_profile WHERE usr_password = '6057363323770436698';
+SELECT * FROM user_profile WHERE usr_password = '3605617857738671192';
+SELECT * FROM user_profile WHERE usr_password = '3605617857738671192';
+SELECT * FROM user_profile WHERE usr_password = '3605617857738671192';
+SELECT * FROM user_profile WHERE usr_password = '6057363323770436698';
+SELECT * FROM user_profile WHERE usr_password = '4806569058765975405';
+SELECT * FROM user_profile WHERE usr_password = '4806569058765975405';
+SELECT * FROM user_profile WHERE usr_password = '683495';
+SELECT * FROM user_profile WHERE usr_password = '683495';
+SELECT * FROM user_profile WHERE usr_password = '5381';
+SELECT * FROM user_profile WHERE usr_password = '4806569058765975405';
+SELECT * FROM user_profile WHERE usr_password = '4806569058765975405';
+SELECT * FROM user_profile WHERE usr_password = '4806569058765975405';
+SELECT * FROM user_profile WHERE usr_password = '4806569058765975405';
+SELECT * FROM user_profile WHERE usr_password = '4806569058765975405';
+SELECT * FROM user_profile WHERE usr_password = '4806569058765975405';
+SELECT * FROM user_profile WHERE usr_password = '4806569058765975405';
+SELECT * FROM user_profile WHERE usr_password = '4806569058765975405';
+SELECT * FROM user_profile WHERE usr_password = '4806569058765975405';
+SELECT * FROM user_profile WHERE usr_password = '4806569058765975405';
+SELECT * FROM user_profile WHERE usr_password = '4806569058765975405';
+SELECT * FROM user_profile WHERE usr_password = '4806569058765975405';
+SELECT * FROM user_profile WHERE usr_password = '4806569058765975405';
+SELECT * FROM user_profile WHERE usr_password = '4806569058765975405';
+SELECT * FROM user_profile WHERE usr_password = '1436956671317347219';
+SELECT * FROM user_profile WHERE usr_password = '1436956671317347219';
+SELECT * FROM user_profile WHERE usr_password = '1436956671317347219';
+SELECT * FROM user_profile WHERE usr_password = '1436956671317347219';
+SELECT * FROM user_profile WHERE usr_password = '1436956671317347219';
+SELECT * FROM user_profile WHERE usr_password = '1436956671317347219';
+SELECT * FROM user_profile WHERE usr_password = '1436956671317347219';
+SELECT * FROM user_profile WHERE usr_password = '4806569058765975405';
+SELECT * FROM user_profile WHERE usr_password = '1436956671317347219';
+SELECT * FROM user_profile WHERE usr_password = '4806569058765975405';
+SELECT * FROM user_profile WHERE usr_password = '4806569058765975405';
+SELECT * FROM user_profile WHERE usr_password = '1436956671317347219';
+SELECT * FROM user_profile WHERE usr_password = '4806569058765975405';
+SELECT * FROM user_profile WHERE usr_password = '4806569058765975405';
+SELECT * FROM user_profile WHERE usr_password = '4806569058765975405';
+SELECT * FROM user_profile WHERE usr_password = '5381';
+SELECT * FROM user_profile WHERE usr_password = '4806569058765975405';
+SELECT * FROM user_profile WHERE usr_password = '4806569058765975405';
+SELECT * FROM user_profile WHERE usr_password = '4806569058765975405';
+SELECT * FROM user_profile WHERE usr_password = '4806569058765975405';
+SELECT * FROM user_profile WHERE usr_password = '4806569058765975405';
+SELECT * FROM user_profile WHERE usr_password = '5992094924607210398';
+SELECT * FROM user_profile WHERE usr_password = '5992094924607210398';
+SELECT * FROM user_profile WHERE usr_password = '1436956671317347219';
+SELECT * FROM user_profile WHERE usr_password = '4806569058765975405';
+SELECT * FROM user_profile WHERE usr_password = '4806569058765975405';
+SELECT * FROM user_profile WHERE usr_password = '1436956671317347219';
