@@ -17,16 +17,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     var currentUserFirstName:String!
     
-    // pulled from my ass i mean stack overflow
-    func strHash(_ str: String) -> UInt64 {
-        var result = UInt64 (5381)
-        let buf = [UInt8](str.utf8)
-        for b in buf {
-            result = 127 * (result & 0x00ffffffffffffff) + UInt64(b)
-        }
-        return result
-    }
-    
     override func shouldPerformSegue(withIdentifier identifier: String?, sender: Any?) -> Bool {
         if let ident = identifier {
             if ident == "segueFromLogin" {
