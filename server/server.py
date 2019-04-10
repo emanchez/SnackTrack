@@ -3,7 +3,7 @@ from flask import Flask, render_template, redirect, url_for, session, request, j
 import dbconnect
 
 app =  Flask(__name__, template_folder = "templates")
-my_connection = dbconnect.MyConnection("password", "SnapTrack")
+my_connection = dbconnect.MyConnection("jasper", "SnapTrack")
 
 
 @app.route("/")
@@ -31,8 +31,24 @@ def parse_request():
 @app.route("/test", methods=["GET","POST"])
 def response_():
 	input = request.args.get('input')
-	return jsonify(response="objname")
+	return jsonify(response="HEY BITCH")
 
+@app.route("/signup", methods=["GET", "POST"])
+def signup():
+	main_query = "INSERT INTO {0} VALUES (\"{1}\",\"{2}\",\"{3}\",\"{4}\",\"{5}\", null, null);"
+	_table = request.args.get("table")
+	#_values = request.args.get("values")
+	_email = request.args.get("email")
+	_pass = request.args.get("pass")
+	_fname = request.args.get("fname")
+	_lname = request.args.get("lname")
+	_dob = request.args.get("dob")
+	try:
+		my_connection.insert_query(main_query.format(_table, _email, _pass, _fname, _lname, _dob))
+		return jsonify(response = "OK")
+	except:
+		return jsonify(response = "NOT OK")
+	
 @app.route("/login", methods=["GET", "POST"])
 def login():
 	user_ = request.args.get('user')
