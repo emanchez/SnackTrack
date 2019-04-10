@@ -18,8 +18,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pear" translatesAutoresizingMaskIntoConstraints="NO" id="ty4-As-tbd">
-                                <rect key="frame" x="66" y="182" width="242" height="242"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="imgPearBig" translatesAutoresizingMaskIntoConstraints="NO" id="ty4-As-tbd">
+                                <rect key="frame" x="70" y="182" width="242" height="242"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -33,6 +33,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="pear" width="270" height="272"/>
+        <image name="imgPearBig" width="267" height="267"/>
     </resources>
 </document>

@@ -26,6 +26,11 @@ class ViewController: UIViewController {
                 return false
             }
         }
+        if let ident = identifier {
+            if ident == "segueFromSignup" {
+                return false
+            }
+        }
         return true
     }
     
@@ -77,8 +82,16 @@ class ViewController: UIViewController {
                 let responseObject = (try? JSONSerialization.jsonObject(with: data)) as? [String: Any]
                 // let responseMessage = String(format: "%@", responseObject?["response"] as! CVarArg)
                 let responseMessage = String(format: "%@", responseObject?["message"] as! CVarArg)
-                print(String(format: "%@\n", responseMessage))
+                
+                
                 if (responseMessage == "failed"){
+                    print(String(format: "%@\n", responseMessage))
+                    
+                    /*let alertLogin = UIAlertController(title: "ERROR: Wrong Username Or Password", message: "Please Try Again", preferredStyle: .alert)
+                    
+                    alertLogin.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+                    
+                    self.present(alertLogin, animated: true)*/
                     return
                 }
                 mainUser.email = String(format: "%@", responseObject?["email"] as! CVarArg)

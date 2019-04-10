@@ -13,6 +13,8 @@ var signUpConfirmation = false
 
 class SignUpViewController: UIViewController{
     
+    
+    
     @IBOutlet weak var fnameText: UITextField!
     
     @IBOutlet weak var lnameText: UITextField!
@@ -31,10 +33,12 @@ class SignUpViewController: UIViewController{
     }
     override func shouldPerformSegue(withIdentifier identifier: String?, sender: Any?) -> Bool {
         if let ident = identifier {
-            if ident == "signUpSegue" && signUpConfirmation {
-                return true
+            if ident == "segueFromSignup" {
+                return false
             }
-            else if ident == "signUpSegue"{
+        }
+        if let ident = identifier {
+            if ident == "segueFromLogin" {
                 return false
             }
         }
@@ -141,15 +145,15 @@ class SignUpViewController: UIViewController{
                 //let IconsTabViewController = self.storyboard?.instantiateViewController(withIdentifier: "iconsTab") as! IconsTabViewController
                 //self.navigationController?.pushViewController(IconsTabViewController, animated: true)
                 //self.performSegue(withIdentifier: "segueFromLogin", sender: nil)
-                OperationQueue.main.addOperation {
-                    [weak self] in
-                    self?.performSegue(withIdentifier: "segueFromLogin", sender: self)
-                }
+
                 //print(responseMessage)
                 
                 //self.currentUserFirstName = responseMessage
             }
             task.resume()
+            
+            //let vc = ViewController()
+            //self.present(vc, animated: true, completion: nil)
             
             //let alert = UIAlertController(title: "Success!", message: "Please Login", preferredStyle: .alert)
             
@@ -160,11 +164,10 @@ class SignUpViewController: UIViewController{
             print("Signup Successful")
             
             signUpConfirmation = true
-            
-            //OperationQueue.main.addOperation {
-            //    [weak self] in
-            //    self?.performSegue(withIdentifier: "signUpSegue", sender: self)
-            //}
+            OperationQueue.main.addOperation {
+              [weak self] in
+                self?.performSegue(withIdentifier: "segueFromSignup", sender: self)
+            }
         }
         
     }

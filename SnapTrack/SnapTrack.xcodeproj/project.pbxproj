@@ -12,11 +12,11 @@
 		0A43A4172225D25500F364B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A43A4162225D25500F364B2 /* AppDelegate.swift */; };
 		0A43A4192225D25500F364B2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A43A4182225D25500F364B2 /* ViewController.swift */; };
 		0A43A41C2225D25500F364B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A43A41A2225D25500F364B2 /* Main.storyboard */; };
-		0A43A41E2225D25E00F364B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A43A41D2225D25E00F364B2 /* Assets.xcassets */; };
 		0A43A4212225D25E00F364B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A43A41F2225D25E00F364B2 /* LaunchScreen.storyboard */; };
 		0A43A4292225DDA400F364B2 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A43A4282225DDA400F364B2 /* ProfileViewController.swift */; };
 		0A43A42D2225E68500F364B2 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A43A42C2225E68500F364B2 /* CameraViewController.swift */; };
 		0A43A42F22273D0300F364B2 /* IconsTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A43A42E22273D0300F364B2 /* IconsTabViewController.swift */; };
+		0AB24345225E8410003A2D27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AB24344225E8410003A2D27 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,12 +26,12 @@
 		0A43A4162225D25500F364B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0A43A4182225D25500F364B2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0A43A41B2225D25500F364B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		0A43A41D2225D25E00F364B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0A43A4202225D25E00F364B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0A43A4222225D25E00F364B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0A43A4282225DDA400F364B2 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		0A43A42C2225E68500F364B2 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		0A43A42E22273D0300F364B2 /* IconsTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconsTabViewController.swift; sourceTree = "<group>"; };
+		0AB24344225E8410003A2D27 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,9 +62,9 @@
 				0A43A42E22273D0300F364B2 /* IconsTabViewController.swift */,
 				0A43A4182225D25500F364B2 /* ViewController.swift */,
 				0A1BD3B5225BE10E00E01D5E /* SignUpViewController.swift */,
-				0A05B2B7224FF39C003C7184 /* SettingsMenuViewController.swift */,
 				0A43A41A2225D25500F364B2 /* Main.storyboard */,
-				0A43A41D2225D25E00F364B2 /* Assets.xcassets */,
+				0AB24344225E8410003A2D27 /* Assets.xcassets */,
+				0A05B2B7224FF39C003C7184 /* SettingsMenuViewController.swift */,
 				0A43A41F2225D25E00F364B2 /* LaunchScreen.storyboard */,
 				0A43A4222225D25E00F364B2 /* Info.plist */,
 			);
@@ -130,7 +130,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A43A4212225D25E00F364B2 /* LaunchScreen.storyboard in Resources */,
-				0A43A41E2225D25E00F364B2 /* Assets.xcassets in Resources */,
+				0AB24345225E8410003A2D27 /* Assets.xcassets in Resources */,
 				0A43A41C2225D25500F364B2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

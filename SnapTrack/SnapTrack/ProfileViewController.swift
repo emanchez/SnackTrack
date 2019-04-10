@@ -23,7 +23,7 @@ class ProfileViewController: UIViewController{
         profilePicture.layer.borderColor = UIColor.black.cgColor
         profilePicture.layer.cornerRadius = profilePicture.frame.height/2
         profilePicture.clipsToBounds = true
-        welcomeLabel.text = String(format: "Welcome %@!",mainUser.fname)
+        welcomeLabel.text = String(format: "Hi %@ , you look great!",mainUser.fname)
         print ( String(format: "%@ name", mainUser.fname))
     }
     

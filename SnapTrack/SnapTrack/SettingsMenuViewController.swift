@@ -18,8 +18,11 @@ enum MenuType:Int{
 }
 class SettingsMenuViewController: UITableViewController{
     var didTapMenuType:((MenuType) -> Void)?
+    
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+
     }
     
     // minute 3:50 youtube video
@@ -38,6 +41,7 @@ class SettingsMenuViewController: UITableViewController{
         
     }
     
+   
     
     
 }
