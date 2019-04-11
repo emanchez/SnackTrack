@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 from flask import Flask, render_template, redirect, url_for, session, request, jsonify
 import dbconnect
+import cv2
+import numpy as np
+import base64
 
 app =  Flask(__name__, template_folder = "templates")
 my_connection = dbconnect.MyConnection("jasper", "SnapTrack")
@@ -80,6 +83,22 @@ def login():
 			height=data[6]
 			)
 
+@app.route("/upload", methods=["GET","POST"])
+def upload():
+	'''
+	_content = request.args.get('content')
+	_content = _content.replace("%27", "'")
+	with open("imagetext.txt", 'w') as f:
+		f.write(_content)
+	imgbytes = np.fromstring(_content, np.uint8)
+	img = cv2.imdecode(imgbytes, cv2.IMREAD_COLOR)
+	cv2.imwrite("haw.bmp", img)
+	'''
+	nparr = np.fromstring(request.data, np.uint8)
+	img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
+	cv2.imwrite('haw.jpg', img)
+	return jsonify(response="ok", status='200', mimetype="application/json")
+			
 # @app.route("/ss")
 # def ss():
 	# if 'username' in session:
