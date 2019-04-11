@@ -85,7 +85,6 @@
         <!--Profile View Controller-->
         <scene sceneID="xCT-gm-C9b">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9Ml-CU-ND1" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="menuViewController" id="lW4-0o-lHD" customClass="ProfileViewController" customModule="SnapTrack" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zTc-k3-lnH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -122,13 +121,13 @@
                         <outlet property="welcomeLabel" destination="lk1-eO-BlX" id="Tya-yY-wRg"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9Ml-CU-ND1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="134" y="-645"/>
         </scene>
         <!--Settings Menu View Controller-->
         <scene sceneID="2VJ-kh-Bqn">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3fn-Yq-bTH" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController storyboardIdentifier="SettingsMenuViewController" id="mZy-pq-lzi" customClass="SettingsMenuViewController" customModule="SnapTrack" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" dataMode="static" style="grouped" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="GKd-Ia-08k">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -199,6 +198,7 @@
                         </connections>
                     </tableView>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3fn-Yq-bTH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1432.8" y="-645.42728635682158"/>
         </scene>
@@ -213,7 +213,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GhK-2X-6e7">
                                 <rect key="frame" x="0.0" y="69" width="375" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.28578457550000003" green="0.90807897130000004" blue="0.96620899439999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.92549019607843142" green="0.92549019607843142" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Edit Picture">
                                     <color key="titleColor" red="0.15686274510000001" green="0.32549019610000002" blue="0.41960784309999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -225,7 +225,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gfc-Dd-Sni">
                                 <rect key="frame" x="0.0" y="196" width="375" height="138"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.28578457550000003" green="0.90807897130000004" blue="0.96620899439999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.92549019607843142" green="0.92549019607843142" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Edit Personal Information">
                                     <color key="titleColor" red="0.15686274510000001" green="0.32549019610000002" blue="0.41960784309999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -281,7 +281,9 @@
                         <viewLayoutGuide key="safeArea" id="qwj-5a-hZi"/>
                     </view>
                     <connections>
+                        <outlet property="chooseImgButton" destination="lr7-ZJ-mAk" id="kwA-1a-wXv"/>
                         <outlet property="profileImgEdit" destination="Kun-Tf-ELe" id="z4k-3Z-dc9"/>
+                        <outlet property="uploadButton" destination="BX4-sa-lL6" id="fcB-Al-E0t"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bfx-mR-nuO" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -517,12 +519,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AYD-74-3Bx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="133.59999999999999" y="1012.4437781109445"/>
+            <point key="canvasLocation" x="134" y="1083"/>
         </scene>
         <!--Item 1-->
         <scene sceneID="ckD-Bu-vXo">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ljy-tc-qC5" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="BtX-4u-UhV" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item 1" id="hVc-Or-uf2"/>
                     <toolbarItems/>
@@ -535,6 +536,7 @@
                         <segue destination="lW4-0o-lHD" kind="relationship" relationship="rootViewController" id="WYQ-ba-bg2"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ljy-tc-qC5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2665" y="134"/>
         </scene>
@@ -543,6 +545,6 @@
         <image name="cleanImg1x" width="60" height="60"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="WbR-y7-hcT"/>
+        <segue reference="P4Q-3B-ukP"/>
     </inferredMetricsTieBreakers>
 </document>

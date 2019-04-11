@@ -62,26 +62,35 @@ class ViewController: UIViewController {
             let hashValue = strHash(str: String(format: "%@%@", user_!, pass_!))
             print(hashValue)
             
-            var base_url = URLComponents(string: String (format:"http://%@/login?", server1))
+            let base_url = URL(string: String (format:"http://%@/login", server1))
             
-            base_url?.queryItems = [
-                URLQueryItem(name: "user", value: user_),
-                URLQueryItem(name: "pass", value: String(format: "'%@'", String(hashValue)))
-            ]
+            //base_url?.queryItems = [
+              //  URLQueryItem(name: "user", value: user_),
+              //  URLQueryItem(name: "pass", value: String(format: "'%@'", String(hashValue)))
+            //]
             
-            var request = URLRequest(url: (base_url?.url)!)
+            var request = URLRequest(url: base_url!)
+            let bodyString = String(format: "user=%@&pass=%@", user_!, String(hashValue))
+            let bodyData = bodyString.data(using: String.Encoding.utf8)
+            
+            
+            request.httpBody = bodyData
+            
+            print(NSString(data: request.httpBody!, encoding: String.Encoding.utf8.rawValue)!)
             
             request.httpMethod = "POST"
+            
+            request.setValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
             request.addValue("application/json", forHTTPHeaderField: "Accept")
             let task = URLSession.shared.dataTask(with: request) { data, response, error in guard let data = data,
                 let response = response as? HTTPURLResponse,
                 (200 ..< 300) ~= response.statusCode,
                 error == nil else {
-                    print (base_url?.url as Any)
+                    print (base_url?.description as Any)
                     return
                 }
-                let responseObject = (try? JSONSerialization.jsonObject(with: data)) as? [String: Any]
+                let responseObject = (try? JSONSerialization.jsonObject(with: data, options: .mutableContainers)) as? [String: Any]
                 // let responseMessage = String(format: "%@", responseObject?["response"] as! CVarArg)
                 let responseMessage = String(format: "%@", responseObject?["message"] as! CVarArg)
                 
