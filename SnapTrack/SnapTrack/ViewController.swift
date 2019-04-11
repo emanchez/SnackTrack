@@ -69,9 +69,11 @@ class ViewController: UIViewController {
                 URLQueryItem(name: "pass", value: String(format: "'%@'", String(hashValue)))
             ]
             
-            let request = URLRequest(url: (base_url?.url)!)
+            var request = URLRequest(url: (base_url?.url)!)
             
-            
+            request.httpMethod = "POST"
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.addValue("application/json", forHTTPHeaderField: "Accept")
             let task = URLSession.shared.dataTask(with: request) { data, response, error in guard let data = data,
                 let response = response as? HTTPURLResponse,
                 (200 ..< 300) ~= response.statusCode,

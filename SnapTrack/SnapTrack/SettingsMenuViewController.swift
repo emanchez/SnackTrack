@@ -34,14 +34,11 @@ class SettingsMenuViewController: UITableViewController{
             self?.didTapMenuType?(menuType)
         }
     }
+
     
-    @IBAction func logoutButtonTapped(_ sender: UIButton) {
+    @IBAction func logoutButtonTapped(_ sender: Any) {
         print(String(format: "Logging out of %@'s account", mainUser.fname))
         mainUser = UserInfo()
-        
     }
-    
-   
-    
     
 }
