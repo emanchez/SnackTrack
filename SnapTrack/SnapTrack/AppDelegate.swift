@@ -18,7 +18,7 @@ class UserInfo {
     var height: String = ""
 }
 
-var server1 = String("67.80.162.105:5000")
+var server1 = String("http://67.80.162.105:5000")
 
 func strHash(str: String) -> UInt64 {
     var result = UInt64 (5381)
