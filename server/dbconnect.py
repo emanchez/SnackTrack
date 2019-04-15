@@ -16,10 +16,19 @@ class MyConnection:
 		self.connection = create_database_connection(password, database_name)
 		self.cursor = self.connection.cursor()
 	
-	def custom_query(self, query):
+	def custom_query(self, query, buff=False):
 		self.cursor.execute(query)
 		
-		return [x for x in self.connection.cursor()]
+		return [x for x in self.cursor]	
+
+	def fetch_query(self, query, buff=False):
+		import array
+		temp_cursor = self.connection.cursor(raw=buff)
+		temp_cursor.execute(query)
+		r = temp_cursor.fetchone()
+		if r  == None:
+			return ()
+		return r[0]
 	
 	def select_query(self, table, value_names, value_name, value):
 		#value_name is in quotation marks (i.e. "\"apple\"")

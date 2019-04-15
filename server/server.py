@@ -52,17 +52,23 @@ def signup():
 	except:
 		return jsonify(response = "NOT OK")
 	
-@app.route("/login", methods=["GET", "POST"])
+@app.route("/login", methods=["POST"])
 def login():
-	user_ = request.args.get('user')
-	pass_ = request.args.get('pass')
+	user_ = request.form.get('user')
+	pass_ = request.form.get('pass')
 
+	
 	q_result = my_connection.select_query(
 		table = "user_profile",
 		value_names="*",
 		value_name="usr_password",
 		value=pass_
 	)
+	
+	with open("some shit.txt", "w") as f:
+		f.write("{0} {1}\n".format(user_, pass_))
+		f.write("{}\n".format(request.data))
+		f.write("{}\n".format(str(q_result)))
 	#with open("some shit.txt", "a") as f:
 	#	s = ""
 	#	for x in q_result[0]:
@@ -98,7 +104,47 @@ def upload():
 	img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
 	cv2.imwrite('haw.jpg', img)
 	return jsonify(response="ok", status='200', mimetype="application/json")
-			
+	
+@app.route("/fetch/profile_picture", methods=["GET","POST"])
+def fetch_profile_picture():
+	user_ = request.form.get('user')
+	if user_ == None:
+		
+		with open("log", "a") as f:
+			f.write("none found\n")
+		user_ = request.args.get('user')
+	with open("log", "a") as f:
+		f.write("{}\n".format(user_))
+	query_ = "SELECT pic FROM profile_pictures WHERE email = '{}';".format(user_)
+	
+	with open("log", "a") as f:
+		f.write("{0}\n".format(query_))
+		f.write("{0}:\n".format(user_))
+	q_result = my_connection.fetch_query(query_, buff=True)
+	
+	
+	with open("log", "a") as f:
+		#f.write("{0}\n".format(query_))
+		#f.write("{0}:\n".format(user_))
+		f.write("{0}\n\n".format(len(q_result)))
+	
+	if q_result == ():
+		return jsonify(message = "failed")
+	else:
+		pic_ = q_result
+		#pic__ = pic_[10:len(pic_)-1]
+		with open("log", "a") as f:
+			f.write("{0}\n\n".format(str(pic__)))
+		with open("ha2.jpg", 'wb') as f:
+			f.write(pic_)
+		nparr = np.fromstring(pic__, np.uint8)
+		img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
+		cv2.imwrite("ha.jpg", img)
+		return jsonify(
+			message="ok",
+			data=str(pic__)
+		)
+	
 # @app.route("/ss")
 # def ss():
 	# if 'username' in session:
