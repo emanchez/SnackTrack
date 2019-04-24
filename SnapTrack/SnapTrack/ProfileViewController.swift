@@ -9,7 +9,9 @@
 import Foundation
 import UIKit
 
-class ProfileViewController: UIViewController{
+
+
+class ProfileViewController: UIViewController {
     
     @IBOutlet weak var welcomeLabel: UILabel!
     
@@ -23,11 +25,129 @@ class ProfileViewController: UIViewController{
         profilePicture.layer.borderColor = UIColor.black.cgColor
         profilePicture.layer.cornerRadius = profilePicture.frame.height/2
         profilePicture.clipsToBounds = true
+        profilePicture.contentMode = .scaleAspectFill
         welcomeLabel.text = String(format: "Hi %@ , you look great!",mainUser.fname)
         print ( String(format: "%@ name", mainUser.fname))
+        profilePicture.image = getProfilePicture()
+        NotificationCenter.default.addObserver(self, selector: #selector(refresh(_:)), name: Notification.Name(rawValue: "refresh"), object: nil)
     }
     
-
+    @IBAction func touchMebutton(_ sender: Any) {
+        let img : UIImage = getProfilePicture()
+        profilePicture.image = img
+    }
+    
+    
+    func getProfilePicture() -> UIImage{
+        
+        if(mainUser.email == "dev"){
+            return UIImage()
+        }
+        
+        let route_ = "fetch/profile_picture"
+        
+        //var responsejson : [String : Any?]
+        //responsejson = sendRequest(url: server1, route: route_, params: params_)
+        var status = "wait"
+        let base_url = URL(string: String(format: "%@/%@", server1, route_))
+        var outImage : UIImage?
+        var request = URLRequest(url: base_url!)
+        let bodyString = String(format: "user=%@", mainUser.email)
+        let bodyData = bodyString.data(using: String.Encoding.utf8)
+        
+        
+        request.httpBody = bodyData
+        
+        //print(NSString(data: request.httpBody!, encoding: String.Encoding.utf8.rawValue)!)
+        
+        request.httpMethod = "POST"
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in guard let data = data,
+            let response = response as? HTTPURLResponse,
+            (200 ..< 300) ~= response.statusCode,
+            error == nil else {
+                status = "404"
+                return
+            }
+            outImage = UIImage(data: data)
+            if outImage == nil{
+                status = "failed"
+            }
+            else {
+                status = "ok"
+            }
+        }
+        task.resume()
+        
+        
+        let _timeout = Date().timeIntervalSince1970 + 5
+        while (status == "wait") {
+            if (Date().timeIntervalSince1970 > _timeout){
+                break
+            }
+        }//wait for response
+        
+        if (status == "ok"){
+            print("The data transfer is working")
+            /*
+            var data_ = responsejson["data"] as! String
+            let decodeData =  Data(data_.utf8)
+            
+            //let decodedData:NSData = NSData(base64Encoded: data_, options: .ignoreUnknownCharacters)!
+            
+            
+            //var newData = String(data_[..<data_.index(data_.startIndex,offsetBy:data_.count-1)])
+            //newData = String(newData[newData.index(newData.startIndex, offsetBy: 10)...])
+            
+            var bytes_ = [UInt8]()
+            for char in data_.utf8{
+                bytes_ += [char]
+            }
+            
+            print(data_)
+                
+            print(bytes_.count)
+ 
+            let imgData: NSData = NSData(bytes: bytes_, length: bytes_.count)
+            print(imgData.length)
+            
+            guard let outImage:UIImage = UIImage(data: decodeData) else{
+                print("Fatal Error")
+                return UIImage()
+            }
+            */
+            return outImage!
+            
+           /* else {
+                print("Fatal error")
+                return UIImage()
+            }*/
+            
+            
+        }
+        else if (status == "failed"){
+            print("Failed to cast to image")
+            return UIImage()
+        }
+        else if (status == "404"){
+            print ("unable to connect")
+            return UIImage()
+        }
+        else if (status == "wait"){
+            print("Connection timed out")
+            return UIImage()
+        }
+        else{
+            print("Unknown error")
+            return UIImage()
+        }
+        
+    }
+    
+    @objc func refresh(_ notification:Notification){
+        
+        profilePicture.image = mainUser.profilePic
+    }
     @IBAction func didTapMenu(_ sender: UIBarButtonItem) {
         guard let settingsMenuViewController = storyboard?.instantiateViewController(withIdentifier: "SettingsMenuViewController") else {return}
         
@@ -39,3 +159,4 @@ class ProfileViewController: UIViewController{
     
     
 }
+

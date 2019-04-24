@@ -21,6 +21,15 @@ UITabBarControllerDelegate{
     
     @IBOutlet weak var Upload: UIButton!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        imageView.layer.borderWidth = 1
+        imageView.layer.borderColor = UIColor.black.cgColor
+        
+    }
+    
+    
     @IBAction func chooseImage(_ sender: Any) {
         //setting our variable for option
         let imagePickerController = UIImagePickerController()
@@ -74,6 +83,7 @@ UITabBarControllerDelegate{
     
     
     @IBAction func UploadImage(_ sender: Any) {
+        /*
         let input_ = String("hello")
         var base_url = URLComponents(string: String (format:"http://%@/test?", server1))
         
@@ -96,14 +106,75 @@ UITabBarControllerDelegate{
             self.responseLabel.text = String(format: "Success: %@", responseObject?["response"] as! CVarArg)
         }
         task.resume()
+        */
+        
+        let imageData = imageView.image!.jpegData(compressionQuality: 1.0)
+        let route_ = "upload"
+        
+        //var responsejson : [String : Any?]
+        //responsejson = sendRequest(url: server1, route: route_, params: params_)
+        var status = "wait"
+        let base_url = URL(string: String(format: "%@/%@", server1, route_))
+        
+        var request = URLRequest(url: base_url!)
+        var bodyData = Data()
+        
+        let boundary = UUID().uuidString
+        let config = URLSessionConfiguration.default
+        let session = URLSession(configuration: config)
+        let userValue = mainUser.email
+        request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+        
+        bodyData.append("\r\n--\(boundary)\r\n".data(using: .utf8)!)
+        bodyData.append("Content-Disposition: form-data; name=\"user\"\r\n\r\n".data(using: .utf8)!)
+        bodyData.append("\(userValue)".data(using: .utf8)!)
+        
+        bodyData.append("\r\n--\(boundary)\r\n".data(using: .utf8)!)
+        bodyData.append("Content-Disposition: form-data; name=\"image\"; filename=\"image.jpg\"\r\n".data(using: .utf8)!)
+        bodyData.append("Content-Type: image/png\r\n\r\n".data(using: .utf8)!)
+        bodyData.append(imageData!)
+        
+        bodyData.append("\r\n--\(boundary)--\r\n".data(using: .utf8)!)
+        request.httpMethod = "POST"
+        
+        var objectLabel = "a"
+        var calories = ""
+        session.uploadTask(with: request, from: bodyData, completionHandler: { responseData, response, error in
             
+            if(error != nil){
+                status = "404"
+                print("\(error!.localizedDescription)")
+            }
             
+            let responseObject = ((try? JSONSerialization.jsonObject(with: responseData!, options: [])) as? [String: Any])!
+            if(responseObject["message"] as! String == "ok"){
+                
+                print("uploaded successfully")
+                objectLabel = responseObject["food"] as! String
+                calories = responseObject["calories"] as! String
+                print(responseObject["food"] as! String)
+                status = "ok"
+            }
+            else if (responseObject["message"] as! String == "failed"){
+                status = "failed"
+                print(responseObject["food"] as! String)
+            }
             
+        }).resume()
+        
+        
+        
+        let _timeout = Date().timeIntervalSince1970 + 10
+        while (status == "wait") {
+            if (Date().timeIntervalSince1970 > _timeout){
+                print("Connection Timed Out")
+                break
+            }
+        }//wait for response
+        print(objectLabel)
+        print(calories)
+        responseLabel.text = String(format: "%@ %@", objectLabel, calories)
     }
-    
-    
-    
-    
     
     // giving the user the option to not pick a photos
     
@@ -111,13 +182,6 @@ UITabBarControllerDelegate{
        
         picker.dismiss(animated: true, completion: nil)
     }
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-    }
-  
 
     
 }

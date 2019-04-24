@@ -19,8 +19,6 @@ class SignUpViewController: UIViewController{
     
     @IBOutlet weak var lnameText: UITextField!
     
-    @IBOutlet weak var dobText: UITextField!
-    
     @IBOutlet weak var emailText: UITextField!
     
     @IBOutlet weak var passwordText: UITextField!
@@ -65,14 +63,6 @@ class SignUpViewController: UIViewController{
             return
         }
         
-        if ( dobText.text == ""){
-            let alert = UIAlertController(title: "ERROR: Empty Field", message: "Please Enter DOB Name", preferredStyle: .alert)
-            
-            alert.addAction(UIAlertAction(title: "Sure", style: .cancel, handler: nil))
-            
-            self.present(alert, animated: true)
-            return
-        }
         
         if ( emailText.text == ""){
             let alert = UIAlertController(title: "ERROR: Empty Field", message: "Please Enter email Name", preferredStyle: .alert)

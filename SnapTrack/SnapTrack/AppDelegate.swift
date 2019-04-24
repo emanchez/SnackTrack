@@ -16,6 +16,7 @@ class UserInfo {
     var dateOfBirth: String = ""
     var weight: String = ""
     var height: String = ""
+    var profilePic: UIImage = UIImage()
 }
 
 var server1 = String("http://67.80.162.105:5000")
@@ -28,7 +29,49 @@ func strHash(str: String) -> UInt64 {
     }
     return result
 }
-
+func sendRequest(url: String, route: String, params: [String]) -> [String : Any] {
+    // URL=ServerUrl ; route = serverside function to execute (i.e. login, signup) ; params=http post/get data to send (format ["name1=value", "name2=value", ... ])
+    print(url)
+    print(route)
+    print(params.joined(separator: "&"))
+    let base_url = URL(string: String(format: "%@/%@", url, route))
+    var literallyAnything : [String : Any]
+    literallyAnything = ["message" : "wait"]
+    var request = URLRequest(url: base_url!)
+    let bodyString = params.joined(separator: "&")
+    let bodyData = bodyString.data(using: String.Encoding.utf8)
+    
+    
+    request.httpBody = bodyData
+    
+    print(NSString(data: request.httpBody!, encoding: String.Encoding.utf8.rawValue)!)
+    
+    request.httpMethod = "POST"
+    
+    request.setValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
+    request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+    request.addValue("application/json", forHTTPHeaderField: "Accept")
+    let task = URLSession.shared.dataTask(with: request) { data, response, error in guard let data = data,
+        let response = response as? HTTPURLResponse,
+        (200 ..< 300) ~= response.statusCode,
+        error == nil else {
+            print ("unable to connect")
+            return
+        }
+        
+        let responseObject = ((try? JSONSerialization.jsonObject(with: data, options: [])) as? [String: Any])!
+        literallyAnything = responseObject
+        
+    }
+    task.resume()
+    let _timeout = Date().timeIntervalSince1970 + 5
+    while (literallyAnything["message"] as! String == "wait") {
+        if (Date().timeIntervalSince1970 > _timeout){
+            break
+        }
+    }//wait for response
+    return literallyAnything
+}
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
