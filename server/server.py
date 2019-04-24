@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
-from flask import Flask, render_template, redirect, url_for, session, request, jsonify
+from flask import Flask, render_template, redirect, url_for, session, request, jsonify, send_file, make_response
 import dbconnect
 import cv2
 import numpy as np
 import base64
+import io
+import mysql.connector
+import reload_ml
 
 app =  Flask(__name__, template_folder = "templates")
 my_connection = dbconnect.MyConnection("jasper", "SnapTrack")
@@ -100,51 +103,116 @@ def upload():
 	img = cv2.imdecode(imgbytes, cv2.IMREAD_COLOR)
 	cv2.imwrite("haw.bmp", img)
 	'''
-	nparr = np.fromstring(request.data, np.uint8)
-	img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
-	cv2.imwrite('haw.jpg', img)
-	return jsonify(response="ok", status='200', mimetype="application/json")
+	pic_ = request.files['image']
+	user_ = request.form.get('user')
+	pic_.save("data/%s.jpg" % user_)
+	try:
+		reload_ml.predict("data/%s.jpg" % user_)
+	except Exception as e:
+		with open("ErrorLog.txt", "a") as f:
+			f.write("{}\n".format(str(e)))
+		return jsonify(message="failed", status="200", details="Failed to load model")
+	result_ = ""
+	with open("misc/result.txt", "r") as f:
+		result_ = f.read()
+	
+	return jsonify(message="ok", status='200', details=result_)
 	
 @app.route("/fetch/profile_picture", methods=["GET","POST"])
 def fetch_profile_picture():
 	user_ = request.form.get('user')
 	if user_ == None:
 		
-		with open("log", "a") as f:
-			f.write("none found\n")
+		#with open("log", "a") as f:
+		#	f.write("none found\n")
 		user_ = request.args.get('user')
-	with open("log", "a") as f:
-		f.write("{}\n".format(user_))
+	#with open("log", "a") as f:
+	#	f.write("{}\n".format(user_))
 	query_ = "SELECT pic FROM profile_pictures WHERE email = '{}';".format(user_)
 	
-	with open("log", "a") as f:
-		f.write("{0}\n".format(query_))
-		f.write("{0}:\n".format(user_))
+	#with open("log", "a") as f:
+	#	f.write("{0}\n".format(query_))
+	#	f.write("{0}:\n".format(user_))
 	q_result = my_connection.fetch_query(query_, buff=True)
 	
 	
-	with open("log", "a") as f:
+	#with open("log", "a") as f:
 		#f.write("{0}\n".format(query_))
 		#f.write("{0}:\n".format(user_))
-		f.write("{0}\n\n".format(len(q_result)))
+	#	f.write("{0}\n\n".format(len(q_result)))
 	
 	if q_result == ():
 		return jsonify(message = "failed")
 	else:
 		pic_ = q_result
 		#pic__ = pic_[10:len(pic_)-1]
-		with open("log", "a") as f:
-			f.write("{0}\n\n".format(str(pic__)))
-		with open("ha2.jpg", 'wb') as f:
-			f.write(pic_)
-		nparr = np.fromstring(pic__, np.uint8)
-		img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
-		cv2.imwrite("ha.jpg", img)
-		return jsonify(
-			message="ok",
-			data=str(pic__)
+		with open("log.txt", "w") as f:
+			f.write("{0}\n\n".format(type(pic_)))
+			
+		#with open("ha2.jpg", 'wb') as f:
+		#	f.write(pic_)
+		
+		#with open("ha2.jpg", "rb") as f:
+		#	x = f.read()
+		
+		return send_file(
+			io.BytesIO(pic_),
+			mimetype='image/jpeg',
+			as_attachment=True,
+			attachment_filename="s.jpg"
 		)
+		#return send_file("ha2.jpg", mimetype='image/jpeg')
+@app.route("/post/profile_picture", methods=["GET","POST"])
+def post_profile_pic():
+	user_ = request.form.get('user')
+	#pic_ = request.form.get('image')
+	pic__ = request.files['image']
 	
+	'''
+	if pic_ == None:
+		with open("log.txt", "a") as f:
+			f.write("data doesnt work\n")			
+		with open("log.txt", "a") as f:
+			f.write("{}\n".format(user_))
+			f.write("{}\n\n".format(len(pic_)))
+		with open("imgpost.jpg", "wb") as f:
+			f.write(pic_.encode('utf-8'))
+		return jsonify(message = "ok")
+	'''	
+	if pic__ == None:
+		with open("log3.txt", "a") as f:
+			f.write("THIS SHIT DOESN'T WORK\n")
+					
+		return jsonify(message = "failed", details = "no image found")
+	with open("log3.txt", "a") as f:
+		f.write("{}\n".format(user_))
+		f.write("recieved data\n\n")
+	
+	pic__.save("imagepost.jpg")
+	
+	data_ = ""
+	with open("imagepost.jpg", "rb") as i:
+		data_ = i.read()
+	
+	mydb = mysql.connector.connect(
+		host="localhost",
+		user="root",
+		passwd="jasper",
+		database="SnapTrack",
+		auth_plugin="mysql_native_password"
+	)
+
+	query_ = "UPDATE profile_pictures SET pic = %s WHERE email = %s;"
+	query_tuple = (data_, user_)
+	cursor = mydb.cursor(True)
+	cursor.execute(query_, query_tuple)
+	mydb.commit()
+
+	#return jsonify(message = "failed", details = "query failed")
+	
+	return jsonify(message = "ok")
+		
+
 # @app.route("/ss")
 # def ss():
 	# if 'username' in session:
