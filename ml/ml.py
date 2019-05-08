@@ -102,12 +102,6 @@ if __name__ == "__main__":
 	del input_images
 	del input_labels
 
-	#create logits
-	# a = tf.Variable([100, 100], tf.float32)
-	# b = tf.Variable([22,1], tf.float32)
-	# mod_logits = tf.matmul(train_images, a) + b
-
-	# model = helper.create_model(len(class_names), train_labels, mod_logits)
 	model = helper.create_model(len(class_names))
 	# COMMENCE TRAINING
 	model.fit(train_images, train_labels, epochs=200,
