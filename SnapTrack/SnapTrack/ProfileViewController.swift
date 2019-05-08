@@ -89,33 +89,7 @@ class ProfileViewController: UIViewController {
         
         if (status == "ok"){
             print("The data transfer is working")
-            /*
-            var data_ = responsejson["data"] as! String
-            let decodeData =  Data(data_.utf8)
             
-            //let decodedData:NSData = NSData(base64Encoded: data_, options: .ignoreUnknownCharacters)!
-            
-            
-            //var newData = String(data_[..<data_.index(data_.startIndex,offsetBy:data_.count-1)])
-            //newData = String(newData[newData.index(newData.startIndex, offsetBy: 10)...])
-            
-            var bytes_ = [UInt8]()
-            for char in data_.utf8{
-                bytes_ += [char]
-            }
-            
-            print(data_)
-                
-            print(bytes_.count)
- 
-            let imgData: NSData = NSData(bytes: bytes_, length: bytes_.count)
-            print(imgData.length)
-            
-            guard let outImage:UIImage = UIImage(data: decodeData) else{
-                print("Fatal Error")
-                return UIImage()
-            }
-            */
             return outImage!
             
            /* else {
