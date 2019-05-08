@@ -116,32 +116,8 @@ class EditProfileViewController:UIViewController,UIImagePickerControllerDelegate
         
         request.httpMethod = "POST"
         
+
         
-        /*
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in guard let data = data,
-            let response = response as? HTTPURLResponse,
-            (200 ..< 300) ~= response.statusCode,
-            error == nil else {
-                status = "404"
-                return
-            }
-            if let responsejson = (try? JSONSerialization.jsonObject(with: data, options: [])) as? [String : Any]{
-                if (responsejson["message"] as! String == "ok"){
-                    status = "ok"
-                    return
-                }
-                else{
-                    status = "failed"
-                    return
-                }
-            }
-            else {
-                status = "failed"
-                return
-            }
-        }
-        task.resume()
-        */
         
         let _timeout = Date().timeIntervalSince1970 + 5
         while (status == "wait") {
