@@ -83,30 +83,6 @@ UITabBarControllerDelegate{
     
     
     @IBAction func UploadImage(_ sender: Any) {
-        /*
-        let input_ = String("hello")
-        var base_url = URLComponents(string: String (format:"http://%@/test?", server1))
-        
-        base_url?.queryItems = [
-            URLQueryItem(name: "input", value: input_)
-        ]
-        
-        let request = URLRequest(url: (base_url?.url)!)
-        
-        self.responseLabel.text = "Loading..."
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in guard let data = data,
-                let response = response as? HTTPURLResponse,
-                (200 ..< 300) ~= response.statusCode,
-                error == nil else {
-                    print (base_url?.url as Any)
-                    self.responseLabel.text = "Error"
-                    return
-            }
-            let responseObject = (try? JSONSerialization.jsonObject(with: data)) as? [String: Any]
-            self.responseLabel.text = String(format: "Success: %@", responseObject?["response"] as! CVarArg)
-        }
-        task.resume()
-        */
         
         let imageData = imageView.image!.jpegData(compressionQuality: 1.0)
         let route_ = "upload"
