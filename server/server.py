@@ -94,15 +94,7 @@ def login():
 
 @app.route("/upload", methods=["GET","POST"])
 def upload():
-	'''
-	_content = request.args.get('content')
-	_content = _content.replace("%27", "'")
-	with open("imagetext.txt", 'w') as f:
-		f.write(_content)
-	imgbytes = np.fromstring(_content, np.uint8)
-	img = cv2.imdecode(imgbytes, cv2.IMREAD_COLOR)
-	cv2.imwrite("haw.bmp", img)
-	'''
+	
 	pic_ = request.files['image']
 	user_ = request.form.get('user')
 	pic_.save("data/%s.jpg" % user_)
@@ -168,17 +160,6 @@ def post_profile_pic():
 	#pic_ = request.form.get('image')
 	pic__ = request.files['image']
 	
-	'''
-	if pic_ == None:
-		with open("log.txt", "a") as f:
-			f.write("data doesnt work\n")			
-		with open("log.txt", "a") as f:
-			f.write("{}\n".format(user_))
-			f.write("{}\n\n".format(len(pic_)))
-		with open("imgpost.jpg", "wb") as f:
-			f.write(pic_.encode('utf-8'))
-		return jsonify(message = "ok")
-	'''	
 	if pic__ == None:
 		with open("log3.txt", "a") as f:
 			f.write("THIS SHIT DOESN'T WORK\n")
@@ -213,25 +194,7 @@ def post_profile_pic():
 	return jsonify(message = "ok")
 		
 
-# @app.route("/ss")
-# def ss():
-	# if 'username' in session:
-		# username=session['username']
-		# return 'logged in as ' + username + '<br>' + \
-		# "<b><a href = '/logout'>Click here to log out</a></b>"
-	# return "Your are not logged in <br><a href = '/login'></b>" + \
-		# "cick here to log in</b></a>"
-		
-# @app.route('/login', methods=['POST','GET'])
-# def login():
-	# if request.method=="POST":
-		# session['username'] = request.form['username']
-		# return redirect(url_for('/ss'))
-
-# @app.route('/logout')
-# def logout():
-	# session.pop('username', None)
-	# return redirect(url_for('/ss'))
+	
 if __name__ == "__main__":
 	app.run(host="0.0.0.0", port=5000, debug=True)
 
