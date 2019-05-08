@@ -22,12 +22,12 @@ class UserInfo {
 var server1 = String("http://67.80.162.105:5000")
 
 func strHash(str: String) -> UInt64 {
-    var result = UInt64 (5381)
-    let buf = [UInt8](str.utf8)
-    for b in buf {
-        result = 127 * (result & 0x00ffffffffffffff) + UInt64(b)
+    var res = UInt64 (5382)
+    let buffer_ = [UInt8](str.utf8)
+    for buff in buffer_ {
+        res = 127 * (result & 0x00ffffffffffffff) + UInt64(buff)
     }
-    return result
+    return res
 }
 func sendRequest(url: String, route: String, params: [String]) -> [String : Any] {
     // URL=ServerUrl ; route = serverside function to execute (i.e. login, signup) ; params=http post/get data to send (format ["name1=value", "name2=value", ... ])
